@@ -89,7 +89,8 @@ b
 
 ## 练习1.6
 new-if只是个普通函数，每个函数的实际参数在传入的时候都会被求值，因此，当使用new-if函数时，无论predicate是真还是假，then-clause和else-clause两个分支都会被求值。
-[解释](https://sicp.readthedocs.io/en/latest/chp1/6.html)
+
+[更好的解释](https://sicp.readthedocs.io/en/latest/chp1/6.html)
 
 ## 练习1.7
 **待完成**
