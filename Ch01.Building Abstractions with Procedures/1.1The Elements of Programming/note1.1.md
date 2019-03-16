@@ -31,7 +31,7 @@ b
 ```
 
 ## 习题1.3
-```Scheme
+```scheme
 ;;; 计算平方
 (define (square x) (* x x))
 
@@ -63,6 +63,7 @@ b
 
 ## 习题1.5
 > 应用序：先求值参数而后应用
+
 > 正则序：完全展开而后归约
 借用SICP解题集的说明：
 在应用序中，所有被传入的实际参数都会立即被求值，因此，在使用应用序的解释器里执行 (test 0 (p)) 时，实际参数 0 和 (p) 都会被求值，而对 (p) 的求值将使解释器进入无限循环，因此，如果一个解释器在运行 Ben 的测试时陷入停滞，那么这个解释器使用的是应用序求值模式。
@@ -79,3 +80,40 @@ b
 比如说，对于函数 (define (square x) (* x x)) 来说， x 就是形式参数，当进行调用 (square 2) 时， 2 就是形式参数 x 的实际参数。
 
 当人们只说『参数』而不说明它是『形式参数』还是『实际参数』时，他们一般指的是『形式参数』，但是具体还是要看上下文来决定。
+
+---
+
+# 1.1.7实例：采用牛顿法求平方根
+
+函数与过程之间的矛盾，不过是在描述一件事情的特征，与描述如何去做这件事情之间的普遍性差异的一个具体反映。换一种说法，人们有时也将它说成是说明性的知识与行动性的知识之间的差异。在数学里，人们通常关心的是说明性的描述（是什么），而在计算机科学里，人们则通常关心行动性的描述（怎么做）。
+
+## 练习1.6
+new-if只是个普通函数，每个函数的实际参数在传入的时候都会被求值，因此，当使用new-if函数时，无论predicate是真还是假，then-clause和else-clause两个分支都会被求值。
+[解释](https://sicp.readthedocs.io/en/latest/chp1/6.html)
+
+## 练习1.7
+**待完成**
+
+## 练习1.8
+```scheme
+;;; 求立方
+(define (cube x) (* x x x))
+
+;;; 其余步骤与平方根差不多
+(define (cube-root x)
+    (cube-root-iter 1.0 x))
+
+(define (cube-root-iter guess x)            
+    (if (good-enough? guess x)              
+        guess
+        (cube-root-iter (improve guess x)
+                        x)))
+
+(define (good-enough? guess x)              
+    (< (abs (- (cube guess) x))
+       0.001))
+
+;;; 代入公式
+(define (improve guess x)                  
+    (/ (+ (/ x (square guess)) (* 2 guess))
+```
