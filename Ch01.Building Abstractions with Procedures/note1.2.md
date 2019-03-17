@@ -43,3 +43,7 @@
 (A 3 3) => 65536
 
 [答案](https://sicp.readthedocs.io/en/latest/chp1/10.html)
+
+---
+
+## 1.2.2 树形递归
