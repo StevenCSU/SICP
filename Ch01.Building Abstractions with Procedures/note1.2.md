@@ -42,4 +42,4 @@
 (A 2 4) => 65536
 (A 3 3) => 65536
 
-[答案]("https://sicp.readthedocs.io/en/latest/chp1/10.html")
+[答案](https://sicp.readthedocs.io/en/latest/chp1/10.html)
